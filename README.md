@@ -1,23 +1,27 @@
 # entropy-krypton-core
 
-A small Rust library for **metrics-driven job guarding**.
+`entropy-krypton-core` is a small Rust library that takes simple telemetry metrics, turns them into signals, and runs them through a Sentry engine that decides whether to keep, throttle, or kill jobs.
 
-You feed it simple metrics and load signals, and it decides whether a job should be **kept**, **throttled**, or **killed** based on configurable thresholds.
+It’s designed as a lightweight example of how to turn noisy metrics into clear decisions in a backend/system context.
 
-This is a teaching/infra demo crate – not a production policy engine – but it shows how to structure:
+---
 
-- Metrics collection (`EntropyMetrics`)
-- Signal extraction (`KryptonSignals`)
-- Decision logic (`KryptonEngine`)
+## Features
 
-## Quick start
+- Compute basic metrics from samples (`EntropyMetrics`)
+- Turn metrics into normalized signals (`SentrySignals`)
+- Configurable policy engine (`SentryEngine`) with:
+  - `Keep`
+  - `Throttle`
+  - `Kill`
+- Behavior-based tests for low / medium / high stress scenarios
+- Demo binary that prints decisions for a series of synthetic jobs
+
+---
+
+## Getting started
+
+### Run tests
 
 ```bash
-git clone https://github.com/your-user/entropy-krypton-core.git
-cd entropy-krypton-core
-
-# Run tests
 cargo test
-
-# Run the demo
-cargo run --bin krypton_demo
