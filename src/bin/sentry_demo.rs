@@ -1,4 +1,4 @@
-use entropy_krypton_core::{SentryConfig, SentryDecision, SentryEngine, SentrySignals};
+use krypton_entropy_core::{SentryConfig, SentryDecision, SentryEngine, SentrySignals};
 use rand::Rng;
 use std::env;
 
